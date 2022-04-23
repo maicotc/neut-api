@@ -2,6 +2,7 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from flask import Flask, request
+from flask_cors import CORS
 import numpy as np
 import flasgger
 from flasgger import Swagger
@@ -12,6 +13,7 @@ import logging
 
 
 app = Flask(__name__)
+CORS(app)
 Swagger(app)
 
 model = load_model("neut_classifier.h5")
